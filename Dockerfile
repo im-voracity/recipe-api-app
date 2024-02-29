@@ -20,8 +20,13 @@ RUN python -m venv /py && \
     adduser \
         --disabled-password \
         --no-create-home \
-        django-user
+    djangouser && \
+    chown -R djangouser:djangouser /app && chmod -R 755 /app
 
 ENV PATH="/py/bin:$PATH"
 
-USER django-user
+USER djangouser
+
+# If facing the error "PermissionError: [Errno 13] Permission denied: '/app/manage.py"
+# Run the following command to fix the permissions
+# docker compose run --rm app sh -c "chown django-user:django-user -R /app/"
