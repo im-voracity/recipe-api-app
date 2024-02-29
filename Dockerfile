@@ -30,7 +30,3 @@ RUN python -m venv /py && \
 ENV PATH="/py/bin:$PATH"
 
 USER djangouser
-
-# If facing the error "PermissionError: [Errno 13] Permission denied: '/app/manage.py"
-# Run the following command to fix the permissions
-# docker compose run --rm app sh -c "chown djangouser:djangouser -R /app/"
