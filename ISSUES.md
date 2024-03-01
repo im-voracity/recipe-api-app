@@ -4,7 +4,7 @@
 
 When I tried to run `docker-compose run app sh -c "django-admin startproject app ."` I got the following error:
 `"PermissionError: [Errno 13] Permission denied: '/app/manage.py"`. After some research I found that the problem was with
-the djangouser permissions, so I had to run `docker compose run --rm app sh -c "chown djangouser:djangouser -R /app/"` in
+the djangouser permissions, so I had to run `docker-compose run --rm app sh -c "chown djangouser:djangouser -R /app/"` in
 terminal to fix it. After that I was able to run the command without any problem.
 
 ## 2: External Interpreter
