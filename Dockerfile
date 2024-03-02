@@ -25,7 +25,7 @@ RUN python -m venv /py && \
         --disabled-password \
         --no-create-home \
     djangouser && \
-    docker-compose run --rm app sh -c "chown djangouser:djangouser -R /app/"
+    chown djangouser:djangouser -R /app/
 
 ENV PATH="/py/bin:$PATH"
 
